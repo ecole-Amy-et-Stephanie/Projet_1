@@ -1,6 +1,7 @@
 const axios = require("axios");
 const express = require("express");
 const publicPath = 'public';
+const viewsPath = 'views';
 const PORT = 3000;
 
 let app = new express();
@@ -9,7 +10,7 @@ app.listen(PORT, () => {
     console.log(`Server is up and running on PORT ${PORT}.`);
 });
 
-app.use(express.static(publicPath, {extensions: ['html','htm']}));
+app.use(express.static(publicPath, {extensions: ['html','htm','css','js','jpg']}));
 
 /* requests */
 app.get('/search', (request, response) => {
