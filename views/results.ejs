@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Projet_1 - Results.EJS</title>
+</head>
+
+<body>
+
+    <div class="center">
+
+        <h1>Search Result.EJS > <%= keywords %></h1>
+
+        <% console.log(keywords); %>
+        <% console.log(data); %>
+
+        <table id="movies">
+            <% data.forEach(movie => { %>
+            <tr>
+                <td>
+                    <% if (!movie.poster_path) { %>
+                    <img src="images/notavailable.jpg">
+                    <% } else { %>
+                    <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/<%= movie.poster_path %>"
+                        onError="this.onerror=null;this.src='/images/notavailable.jpg';">
+                    <% } %>
+                </td>
+                <td>
+                    <h2><%= movie.original_title %></h2>
+                    <hr>
+                    <p><%= movie.overview %></p>
+                    <hr>
+                    <br>
+                    <i>Date Published:</i> <%= movie.release_date %>
+                    <br>
+                    <i>Total Votes:</i> <%= movie.vote_count %>
+                    <br>
+                    <i>Average Rating:</i> <%= movie.vote_average %>
+                </td>
+            </tr>
+            <% }); %>
+        </table>
+
+    </div>
+
+</body>
+
+</html>
