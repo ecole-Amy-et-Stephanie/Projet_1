@@ -7,7 +7,17 @@
     "start": "nodemon main.js"
   },
   "keywords": [],
-  "author": "Amy Bienvenu",
+  "author": {
+    "name": "Amy Bienvenu",
+    "email": "amy.bienvenu@outlook.com",
+    "url": "https://github.com/amypurple"
+  },
+  "contributors": [
+    {
+      "name": "Stephanie Denis",
+      "url": "https://github.com/Stephaniedenis"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
