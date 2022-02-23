@@ -21,9 +21,13 @@ app.get('/search', aController.getIndex);
 
 app.get('/movies', (request, response) => {
     let keywords = request.query.search;
-    let search = "https://api.themoviedb.org/3/search/movie?api_key=036ea19c89b3277d8f1857ad51e3cb4c&query="+keywords;
+    let page = request.query.page;
+    if (!page) page=1;
+    let search = "https://api.themoviedb.org/3/search/movie?api_key=036ea19c89b3277d8f1857ad51e3cb4c&query="+keywords+"&page="+page;
     axios.get(search)
-    .then(resultat => aController.getMovies(request,response,keywords,resultat.data.results))
+    .then(resultat => {
+        aController.getMovies(request,response,keywords,resultat.data);
+    })
     .catch(erreur=> {
         response.send('erreur :' + erreur);
     });

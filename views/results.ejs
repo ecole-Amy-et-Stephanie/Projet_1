@@ -16,7 +16,7 @@
         <h1>Search Result.EJS > <%= keywords %></h1>
 
         <table id="movies">
-            <% data.forEach(movie => { %>
+            <% data.results.forEach(movie => { %>
             <tr>
                 <td>
                     <% if (!movie.poster_path) { %>
@@ -41,7 +41,9 @@
             </tr>
             <% }); %>
         </table>
-
+        <% if (data.page < data.total_pages) { %>
+        <a href="/movies?search=<%= keywords %>&page=<%= data.page+1 %>">Next Page</a>
+        <% } %>
     </div>
 
 </body>
