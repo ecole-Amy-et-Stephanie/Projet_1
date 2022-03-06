@@ -3,7 +3,7 @@ const axios = require("axios");
 const express = require("express");
 // ajouter controller
 const aController = require("./controllers/aController");
-// Variables
+// Variables Environnement
 const publicPath = 'public';
 const PORT = 3000;
 
