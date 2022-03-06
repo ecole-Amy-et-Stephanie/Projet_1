@@ -1,9 +1,10 @@
-//intoduire axios
+// introduire axios
 const axios = require("axios");
 const express = require("express");
+// ajouter controller
 const aController = require("./controllers/aController");
+// Variables
 const publicPath = 'public';
-const viewsPath = 'views';
 const PORT = 3000;
 
 let app = new express();
@@ -12,9 +13,6 @@ let app = new express();
 app.set("view engine","ejs");
 
 app.use(express.static(publicPath, {extensions: ['html','htm','css','js','jpg','gif','png']}));
-
-/* requests */
-app.get('/search', aController.getIndex);
 
 // routes
 app.get('/movies', (request, response) => {
