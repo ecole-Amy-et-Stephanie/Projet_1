@@ -1,3 +1,4 @@
+//intoduire axios
 const axios = require("axios");
 const express = require("express");
 const aController = require("./controllers/aController");
@@ -7,18 +8,15 @@ const PORT = 3000;
 
 let app = new express();
 
+// indique a express.js de définir son moteur de vues comme ejs
 app.set("view engine","ejs");
-// app.set("views", "views");
-
-app.listen(PORT, () => {
-    console.log(`Server is up and running on PORT ${PORT}.`);
-});
 
 app.use(express.static(publicPath, {extensions: ['html','htm','css','js','jpg','gif','png']}));
 
 /* requests */
 app.get('/search', aController.getIndex);
 
+// routes
 app.get('/movies', (request, response) => {
     let keywords = request.query.search;
     let page = request.query.page;
@@ -32,4 +30,7 @@ app.get('/movies', (request, response) => {
         response.send('erreur :' + erreur);
     });
 });
-
+//nous allons utliser le port 3000 pour le server
+app.listen(PORT, () => {
+    console.log(`Server is up and running on PORT ${PORT}.`);
+});
